@@ -32,3 +32,8 @@
 .icon{
     margin-right: 5px;
 }
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -6,30 +6,30 @@ import moment from "moment";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faComment, faShare } from '@fortawesome/free-solid-svg-icons'
 
-function Post(props) {
+let Post = ({profilePhoto, name, postDate, postText, postImage,}) => (
 
-  return <div className="post">
+   <div className="post">
 
     <div className="postHeader">
-      <img className="profilePhoto" src={props.profilePhoto} alt="profile" />
+      <img className="profilePhoto" src={profilePhoto} alt="profile" />
 
       <div>
-        {props.name}<br />
-        {moment(props.postDate).fromNow()}
+        {name}<br />
+        {moment(postDate).fromNow()}
       </div>
 
     </div>
 
     <div className="postText">
-      {props.postText}
+      {postText}
     </div>
 
-    <img className="postImage" src={props.postImage} alt="post" />
+    <img className="postImage" src={postImage} alt="post" />
      <hr/>
     <div className="postFooter">
 
     <div><FontAwesomeIcon  className="icon" icon={faThumbsUp} />like</div>
-    <div><FontAwesomeIcon className="icon" icon={faComment} />comment</div>
+    <div><FontAwesomeIcon className="icon"  icon={faComment} />comment</div>
     <div><FontAwesomeIcon className="icon" icon={faShare} />share</div>
     
     </div>
@@ -37,11 +37,11 @@ function Post(props) {
    
 
   </div>
-}
+)
 
-ReactDom.render(
-  <>
-
+function Page() {
+  return <div className="page">
+    
     <Post name="Mohsin Raza"
       profilePhoto="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrSQ0T3bpavrKF4CrGxgmqZTTlVLyUiSf9zg&usqp=CAU"
       postDate="16 August 2023"
@@ -66,7 +66,8 @@ ReactDom.render(
       postText="The Republic of Azerbaijan’s Religion Law and Administrative Code amendments of 2021 and 2022; how will this further suppress Christianity in the Caucasus? Aliyev’s autocratic regime is determined to limit"
       postImage="https://scontent.fkhi2-3.fna.fbcdn.net/v/t39.30808-6/367439409_670966785055997_93090010930962024_n.jpg?stp=dst-jpg_p843x403&_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeHxlNRwNRWR5HzRbBAFDbdoYln3AQjWU09iWfcBCNZTTwYwlZKyR3LmeauBJqKNCTpggXFT1699-cKjTeZsM96F&_nc_ohc=nZTtSydsPjQAX-bGbwF&_nc_ht=scontent.fkhi2-3.fna&oh=00_AfB4IKL_1QsXJI8Mjfekl7Ppw_Ez87hrhEwX5VQpBDDs-A&oe=64E22FF9"
     />
+    
+    </div> 
+}
 
-  </>
-
-  , document.querySelector('#root'));
+ReactDom.render(<Page/>, document.querySelector('#root'));
